@@ -52,6 +52,10 @@ class ConsulNetwork < Sinatra::Base
         description = description_el.text.strip
         proposal[:description] = description
 
+        href_el = data.at_css('h3 a')
+        href = href_el['href']
+        proposal[:href] = href
+
         city[:proposal] = proposal
       end
 
