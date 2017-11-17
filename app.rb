@@ -18,7 +18,7 @@ class ConsulNetwork < Sinatra::Base
       },
       {
         name: 'Puerto Real',
-        url: 'http://decide.puertoreal.es',
+        url: 'https://decide.puertoreal.es',
         image: 'puertoreal.png'
       },
       {
