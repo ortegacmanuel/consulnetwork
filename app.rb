@@ -40,6 +40,11 @@ class ConsulNetwork < Sinatra::Base
         name: 'Oviedo',
         url: 'http://www.consultaoviedo.es',
         image: 'oviedo.png'
+      },
+      {
+        name: 'Getafe',
+        url: 'https://participa.getafe.es',
+        image: 'participagetafe.jpg'
       }
     ]
 
