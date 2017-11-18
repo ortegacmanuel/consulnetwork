@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 require 'byebug'
+require 'json'
 
 class ConsulNetwork < Sinatra::Base
   set :public_folder, 'public'
@@ -9,6 +10,11 @@ class ConsulNetwork < Sinatra::Base
   end
 
   get '/' do
+    erb :index
+  end
+
+  get '/api/cities' do
+    content_type :json
 
     cities = [
       {
@@ -67,7 +73,7 @@ class ConsulNetwork < Sinatra::Base
         title_el = data.at_css('h3 a')
         title_el.children.each { |c| c.remove if c.name == 'span' }
         title = title_el.text.strip
-        proposal[:title] = title
+        proposal[:title] = title.capitalize
 
         description_el = data.at_css('div p')
         description = description_el.text.strip
@@ -79,8 +85,10 @@ class ConsulNetwork < Sinatra::Base
 
         city[:proposal] = proposal
       end
-
     end
-    erb :index, locals: {cities: cities}
+
+    # Delete the cities without proposal
+    cities.delete_if { |city| city[:proposal].nil? }
+    cities.to_json
   end
 end

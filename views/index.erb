@@ -55,19 +55,19 @@
         </p>
       </div>
     </section>
-
     <div class="album text-muted">
-      <div class="container">
-
+      <div class="container" id="app">
         <div class="row">
-          <% cities.each do |city| %>
-            <%= erb :'_proposal', :layout => false, :locals => { city: city } unless city[:proposal].nil? %>
-          <% end %>
+          <div class="loader" v-if="loading"></div>
+          <div class="card" v-for="city in cities">
+            <img :src="'img/' + city.image" class='img-fluid' alt='Card image cap' style='max-height:200px'>
+            <h2 v-if="city.proposal"><a :href="city.url + city.proposal.href">{{ city.proposal.title }}</a></h2>
+            <p v-if="city.proposal" class="card-text">{{ city.proposal.description }}</p>
+            <p><span class="badge badge-pill badge-info">{{ city.name }}</span></p>
+          </div>
         </div>
-
       </div>
     </div>
-
     <footer class="text-muted">
       <div class="container">
         <p class="float-right">
@@ -78,20 +78,8 @@
       </div>
     </footer>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    <script>
-      $(function () {
-        Holder.addTheme("thumb", { background: "#55595c", foreground: "#eceeef", text: "Thumbnail" });
-      });
-    </script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/app.js"></script>
   </body>d
 </html>
