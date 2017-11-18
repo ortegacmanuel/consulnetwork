@@ -30,11 +30,22 @@ class ConsulNetwork < Sinatra::Base
         name: 'UDC',
         url: 'https://udcdecide.udc.gal',
         image: ''
+      },
+      {
+        name: 'Gran Canaria',
+        url: 'https://participa.grancanaria.com',
+        image: 'grancanaria.jpg'
       }
     ]
 
     cities.each do |city|
-      html = open("#{city[:url]}/proposals?order=created_at&page=1")
+
+      begin
+        html = open("#{city[:url]}/proposals?order=created_at&page=1")
+      rescue Exception => e
+        puts "An exception #{e} ocurres during connexion with #{city[:name]} installation"
+        next
+      end
 
       doc = Nokogiri::HTML(html)
 

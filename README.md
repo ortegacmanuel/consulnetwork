@@ -1,6 +1,6 @@
 # Consulnetwork
 
-Mini proyecto realizado para el Hackathon de la conferencia [ConsulCon](http://ciudades-democraticas.cc/consulcon/) 2017.
+Mini proyecto realizado para el Hackathon d e la conferencia [ConsulCon](http://ciudades-democraticas.cc/consulcon/) 2017.
 
 # Objetivo
 
