@@ -51,6 +51,51 @@ class ConsulNetwork < Sinatra::Base
         name: 'Getafe',
         url: 'https://participa.getafe.es',
         image: 'participagetafe.jpg'
+      },
+      {
+        name: 'Benalmádena',
+        url: 'https://participa.benalmadena.es',
+        image: 'benalmadena.jpg'
+      },
+      {
+        name: 'Ciudad de Buenos Aires',
+        url: 'https://baelige.buenosaires.gob.ar',
+        image: 'baelige.jpg'
+      },
+      {
+        name: 'קול העם',
+        url: 'http://vote.kolhaam.org.il',
+        image: 'kolhaamorg.png'
+      },
+      {
+        name: 'Ciudad de Mendoza',
+        url: 'http://participa.ciudaddemendoza.gob.ar',
+        image: 'ciudadmendoza.jpg'
+      },
+      {
+        name: 'Molina de Seguro',
+        url: 'https://decide.molinadesegura.es',
+        image: 'molinadesegura.jpg'
+      },
+      {
+        name: 'Calvià',
+        url: 'https://www.participacalvia.es',
+        image: 'participacalvia.png'
+      },
+      {
+        name: 'Chiloeches',
+        url: 'https://decide.aytochiloeches.es',
+        image: 'decidechiloeches.jpg'
+      },
+      {
+        name: 'Carreño',
+        url: 'https://decide.carreno.es',
+        image: 'decidecarreno.jpg'
+      },
+      {
+        name: 'Cheste',
+        url: 'http://cheste.participago.dival.es',
+        image: 'chestedecide.png'
       }
     ]
 
@@ -89,6 +134,7 @@ class ConsulNetwork < Sinatra::Base
 
     # Delete the cities without proposal
     cities.delete_if { |city| city[:proposal].nil? }
+    cities.shuffle!
     cities.to_json
   end
 end
