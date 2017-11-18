@@ -35,6 +35,11 @@ class ConsulNetwork < Sinatra::Base
         name: 'Gran Canaria',
         url: 'https://participa.grancanaria.com',
         image: 'grancanaria.jpg'
+      },
+      {
+        name: 'Oviedo',
+        url: 'http://www.consultaoviedo.es',
+        image: 'oviedo.png'
       }
     ]
 
