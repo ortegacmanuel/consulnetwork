@@ -22,4 +22,5 @@ git clone git@github.com:ortegacmanuel/consulnetwork.git
 cd consulnetwork
 bundle
 rackup
+open http://localhost:9292 to check the project on your browser
 ```
