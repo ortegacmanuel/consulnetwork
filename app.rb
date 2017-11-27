@@ -93,9 +93,9 @@ class ConsulNetwork < Sinatra::Base
         image: 'decidecarreno.jpg'
       },
       {
-        name: 'Cheste',
-        url: 'http://cheste.participago.dival.es',
-        image: 'chestedecide.png'
+        name: 'Gobernación de Nariño',
+        url: 'https://ganapienso.narino.gov.co',
+        image: 'ganapienso.jpg'
       }
     ]
 
