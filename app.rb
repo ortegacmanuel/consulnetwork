@@ -96,6 +96,11 @@ class ConsulNetwork < Sinatra::Base
         name: 'Gobernación de Nariño',
         url: 'https://ganapienso.narino.gov.co',
         image: 'ganapienso.jpg'
+      },
+      {
+        name: 'Jalisco',
+        url: 'https://participa.jalisco.mx',
+        image: 'participajalisco.jpg'
       }
     ]
 
